@@ -45,6 +45,7 @@ struct LogEntry: Equatable, Identifiable {
     let kind: Kind
     let message: String
     let value: String
+    var lastDocumentModifiedDate: Date?
 
     enum Kind: Equatable {
         case read(Read)
@@ -98,7 +99,7 @@ class Document: NSDocument {
         // Insert code here to write your document to data of the specified type, throwing an error in case of failure.
         // Alternatively, you could remove this method and override fileWrapper(ofType:), write(to:ofType:), or write(to:ofType:for:originalContentsURL:) instead.
         self.model.writeCount += 1
-        self.model.appendLog(.init(date: Date(), kind: .write(.init(string: self.model.contentString)), message: "Write Data", value: self.model.contentString))
+        self.model.appendLog(.init(date: Date(), kind: .write(.init(string: self.model.contentString)), message: "Write Data", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
         return self.model.contentString.data(using: .utf8) ?? Data()
     }
 
@@ -116,26 +117,26 @@ class Document: NSDocument {
 extension Document {
 
     override func presentedItemDidChange() {
-        self.model.appendLog(.init(date: Date(), kind: .presentedItemDidChange, message: "Presented Item Did Change", value: self.model.contentString))
+        self.model.appendLog(.init(date: Date(), kind: .presentedItemDidChange, message: "Presented Item Did Change", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
         super.presentedItemDidChange()
     }
 
     override func relinquishPresentedItem(toReader reader: @escaping ((() -> Void)?) -> Void) {
-        self.model.appendLog(.init(date: Date(), kind: .relinquishToReader, message: "Relinquish to Reader BEGIN", value: self.model.contentString))
+        self.model.appendLog(.init(date: Date(), kind: .relinquishToReader, message: "Relinquish to Reader BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
         super.relinquishPresentedItem(toReader: { reaquirer in
             reader({
                 reaquirer?()
-                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Reader END", value: self.model.contentString))
+                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Reader END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
             })
         })
     }
 
     override func relinquishPresentedItem(toWriter writer: @escaping ((() -> Void)?) -> Void) {
-        self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer BEGIN", value: self.model.contentString))
+        self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
         super.relinquishPresentedItem(toWriter: { reaquirer in
             writer({
                 reaquirer?()
-                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer END", value: self.model.contentString))
+                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
             })
         })
     }

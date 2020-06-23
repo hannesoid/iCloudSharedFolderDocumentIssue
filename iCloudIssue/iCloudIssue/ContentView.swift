@@ -15,7 +15,7 @@ struct ContentView: View {
     var filteredSortedLogs: [LogEntry] {
         model.logs
         .filter({ $0.containsPhrase(self.filterPhrase)})
-        .reversed()
+        .sorted(by: { $0.date > $1.date })
     }
     var contentStringBinding: Binding<String> {
         return Binding<String>(get: { self.model.contentString }, set: { newValue in self.model.updateContentStringFromUI(newValue) })
@@ -29,12 +29,15 @@ struct ContentView: View {
             List {
                 ForEach(filteredSortedLogs) { log in
                     HStack {
-                    Text("\(log.dateString)")
-                    Text(log.message + ":")
+                        Text("\(log.dateString)")
+                        Text(log.message + ":")
                         Text(log.value).background(Color.gray.opacity(0.1))
+                        Spacer()
+                        Text(log.fileModificationDateString)
                     }
+
                 }
-            }.frame(minHeight: 600)
+            }.frame(minWidth: 700, minHeight: 700)
             TextField("Filter", text: $filterPhrase).padding()
         }.padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -50,14 +53,20 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 extension LogEntry {
+    func format(date: Date?) -> String {
+        guard let date = date else { return "-" }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "y-MM-dd H:m:ss.SSSS"
+        return dateFormatter.string(from: date)
+    }
 
     var dateString: String {
-        func format(date: Date) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "y-MM-dd H:m:ss.SSSS"
-            return dateFormatter.string(from: date)
-        }
         return format(date: self.date)
+    }
+
+    var fileModificationDateString: String {
+        return format(date: self.lastDocumentModifiedDate)
     }
 
     func containsPhrase(_ phrase: String) -> Bool {
