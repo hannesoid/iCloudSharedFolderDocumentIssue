@@ -38,6 +38,8 @@ struct LogEntry: Equatable, Identifiable {
 
     enum Kind: Equatable {
         case read(Read)
+        case relinquishToReader
+        case relinquishToWriter
         case write(Write)
         case textfield(String)
         case other
@@ -97,6 +99,29 @@ class Document: NSDocument {
         // Alternatively, you could remove this method and override read(from:ofType:) instead.
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
         self.model.contentString = string
+    }
+}
+
+extension Document {
+
+    override func relinquishPresentedItem(toReader reader: @escaping ((() -> Void)?) -> Void) {
+        self.model.logs.append(.init(date: Date(), kind: .relinquishToReader, message: "Relinquish to Reader BEGIN", value: self.model.contentString))
+        super.relinquishPresentedItem(toReader: { reaquirer in
+            reader({
+                reaquirer?()
+                self.model.logs.append(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Reader END", value: self.model.contentString))
+            })
+        })
+    }
+
+    override func relinquishPresentedItem(toWriter writer: @escaping ((() -> Void)?) -> Void) {
+        self.model.logs.append(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer BEGIN", value: self.model.contentString))
+        super.relinquishPresentedItem(toWriter: { reaquirer in
+            writer({
+                reaquirer?()
+                self.model.logs.append(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer END", value: self.model.contentString))
+            })
+        })
     }
 }
 
