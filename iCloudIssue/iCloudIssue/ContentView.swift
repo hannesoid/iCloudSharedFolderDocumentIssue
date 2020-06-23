@@ -11,19 +11,23 @@ import SwiftUI
 struct ContentView: View {
 
     @ObservedObject var model: Model
+    @State var filterPhrase: String = ""
+    var filteredSortedLogs: [LogEntry] {
+        model.logs
+        .filter({ $0.containsPhrase(self.filterPhrase)})
+        .reversed()
+    }
+    var contentStringBinding: Binding<String> {
+        return Binding<String>(get: { self.model.contentString }, set: { newValue in self.model.updateContentStringFromUI(newValue) })
+    }
 
     var body: some View {
         VStack {
-            TextField("content", text: Binding<String>(get: {
-                return self.model.contentString },
-                                                       set: { newValue in
-                                                        self.model.updateContentStringFromUI(newValue)
-
-            })).padding()
+            TextField("content", text: contentStringBinding).padding()
             Text("writeCount: \(model.writeCount)")
             Text("readCount: \(model.readCount)")
             List {
-                ForEach(model.logs.reversed()) { log in
+                ForEach(filteredSortedLogs) { log in
                     HStack {
                     Text("\(log.dateString)")
                     Text(log.message + ":")
@@ -31,6 +35,7 @@ struct ContentView: View {
                     }
                 }
             }.frame(minHeight: 600)
+            TextField("Filter", text: $filterPhrase).padding()
         }.padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -38,12 +43,14 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+
     static var previews: some View {
         ContentView(model: .init())
     }
 }
 
 extension LogEntry {
+
     var dateString: String {
         func format(date: Date) -> String {
             let dateFormatter = DateFormatter()
@@ -51,5 +58,11 @@ extension LogEntry {
             return dateFormatter.string(from: date)
         }
         return format(date: self.date)
+    }
+
+    func containsPhrase(_ phrase: String) -> Bool {
+        if phrase.isEmpty { return true }
+
+        return self.message.contains(phrase) || self.value.contains(phrase) || self.dateString.contains(phrase)
     }
 }
