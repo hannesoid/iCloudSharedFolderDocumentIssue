@@ -13,6 +13,7 @@
 		D160E00324A2488B000D0E3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D160E00224A2488B000D0E3F /* Assets.xcassets */; };
 		D160E00624A2488B000D0E3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D160E00524A2488B000D0E3F /* Preview Assets.xcassets */; };
 		D160E00924A2488B000D0E3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D160E00724A2488B000D0E3F /* Main.storyboard */; };
+		D160E01324A39CF1000D0E3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D160E01224A39CF1000D0E3F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,7 @@
 		D160E00824A2488B000D0E3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D160E00A24A2488B000D0E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D160E00B24A2488B000D0E3F /* iCloudIssue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCloudIssue.entitlements; sourceTree = "<group>"; };
-		D160E01124A39795000D0E3F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D160E01224A39CF1000D0E3F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +43,7 @@
 		D160DFF024A24889000D0E3F = {
 			isa = PBXGroup;
 			children = (
-				D160E01124A39795000D0E3F /* README.md */,
+				D160E01224A39CF1000D0E3F /* README.md */,
 				D160DFFB24A24889000D0E3F /* iCloudIssue */,
 				D160DFFA24A24889000D0E3F /* Products */,
 			);
@@ -139,6 +140,7 @@
 			files = (
 				D160E00924A2488B000D0E3F /* Main.storyboard in Resources */,
 				D160E00624A2488B000D0E3F /* Preview Assets.xcassets in Resources */,
+				D160E01324A39CF1000D0E3F /* README.md in Resources */,
 				D160E00324A2488B000D0E3F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
