@@ -10,14 +10,20 @@ import Cocoa
 import SwiftUI
 import Combine
 
+/// The model which has the contentString, a changeCount, and some logging.
+/// Used as viewModel for ContentView
 class Model: ObservableObject {
 
+    /// The actual data, which shall also be persisted as document
     @Published var contentString: String = ""
+
+    /// changecount, to be increased on each interactive edit
     @Published var changeCount: Int = 0
+
+    // logging
 
     @Published var readCount: Int = 0
     @Published var writeCount: Int = 0
-
     @Published var logs: [LogEntry] = []
 
     func updateContentStringFromUI(_ newValue: String) {
@@ -37,6 +43,7 @@ class Model: ObservableObject {
     }
 }
 
+/// A log entry which can be shown and filtered in the UI
 struct LogEntry: Equatable, Identifiable {
 
     var id: Date { return date }
