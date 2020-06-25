@@ -55,7 +55,8 @@ struct LogEntry: Equatable, Identifiable {
     var lastDocumentModifiedDate: Date?
 
     enum Kind: Equatable {
-        case read(Read)
+        case read
+        case revert
         case relinquishToReader
         case relinquishToWriter
         case write(Write)
@@ -110,13 +111,22 @@ class Document: NSDocument {
         return self.model.contentString.data(using: .utf8) ?? Data()
     }
 
+    override func revert(toContentsOf url: URL, ofType typeName: String) throws {
+        let valueAtURL = (try? Data(contentsOf: url)).flatMap({ String(data: $0, encoding: .utf8) }) ?? "-"
+        self.model.appendLog(.init(date: Date(), kind: .revert, message: "Revert to URL \(url)", value: valueAtURL))
+        try super.revert(toContentsOf: url, ofType: typeName)
+    }
+
+    override func read(from url: URL, ofType typeName: String) throws {
+        let valueAtURL = (try? Data(contentsOf: url)).flatMap({ String(data: $0, encoding: .utf8) }) ?? "-"
+        self.model.appendLog(.init(date: Date(), kind: .read, message: "Read URL \(url)", value: valueAtURL))
+        try super.read(from: url, ofType: typeName)
+    }
+
     override func read(from data: Data, ofType typeName: String) throws {
         self.model.readCount += 1
         let string = String(data: data, encoding: .utf8) ?? ""
-        self.model.appendLog(.init(date: Date(), kind: .read(.init(string: string)), message: "Read Data", value: string))
-        // Insert code here to read your document from the given data of the specified type, throwing an error in case of failure.
-        // Alternatively, you could remove this method and override read(from:ofType:) instead.
-        // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
+        self.model.appendLog(.init(date: Date(), kind: .read, message: "Read Data", value: string))
         self.model.contentString = string
     }
 }
