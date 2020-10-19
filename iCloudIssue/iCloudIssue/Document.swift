@@ -10,68 +10,6 @@ import Cocoa
 import SwiftUI
 import Combine
 
-/// The model which has the contentString, a changeCount, and some logging.
-/// Used as viewModel for ContentView
-class Model: ObservableObject {
-
-    /// The actual data, which shall also be persisted as document
-    @Published var contentString: String = ""
-
-    /// changecount, to be increased on each interactive edit
-    @Published var changeCount: Int = 0
-
-    // logging
-
-    @Published var readCount: Int = 0
-    @Published var writeCount: Int = 0
-    @Published var logs: [LogEntry] = []
-
-    func updateContentStringFromUI(_ newValue: String) {
-        self.logs.append(.init(date: Date(), kind: .textfield(newValue), message: "Typed", value: newValue))
-        self.contentString = newValue
-        self.changeCount += 1
-    }
-
-    func appendLog(_ logEntry: LogEntry) {
-        if !Thread.isMainThread {
-            DispatchQueue.main.async {
-                self.logs.append(logEntry)
-            }
-        } else {
-            self.logs.append(logEntry)
-        }
-    }
-}
-
-/// A log entry which can be shown and filtered in the UI
-struct LogEntry: Equatable, Identifiable {
-
-    var id: Date { return date }
-
-    let date: Date
-    let kind: Kind
-    let message: String
-    let value: String
-    var lastDocumentModifiedDate: Date?
-
-    enum Kind: Equatable {
-        case read
-        case revert
-        case relinquishToReader
-        case relinquishToWriter
-        case write(Write)
-        case textfield(String)
-        case other
-        case presentedItemDidChange
-    }
-    struct Read: Equatable {
-        let string: String
-    }
-    struct Write: Equatable {
-        let string: String
-    }
-}
-
 class Document: NSDocument {
 
     var model: Model = .init()

@@ -14,6 +14,7 @@
 		D1469C5D253DB4BE006FA1A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1469C5B253DB4BE006FA1A2 /* Main.storyboard */; };
 		D1469C5F253DB4C0006FA1A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1469C5E253DB4C0006FA1A2 /* Assets.xcassets */; };
 		D1469C62253DB4C0006FA1A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1469C60253DB4C0006FA1A2 /* LaunchScreen.storyboard */; };
+		D1469C71253DB618006FA1A2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469C70253DB618006FA1A2 /* Model.swift */; };
 		D160DFFD24A24889000D0E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160DFFC24A24889000D0E3F /* AppDelegate.swift */; };
 		D160DFFF24A24889000D0E3F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160DFFE24A24889000D0E3F /* Document.swift */; };
 		D160E00124A24889000D0E3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160E00024A24889000D0E3F /* ContentView.swift */; };
@@ -33,6 +34,7 @@
 		D1469C5E253DB4C0006FA1A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1469C61253DB4C0006FA1A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1469C63253DB4C0006FA1A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1469C70253DB618006FA1A2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D160DFF924A24889000D0E3F /* iCloudIssue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudIssue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D160DFFC24A24889000D0E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D160DFFE24A24889000D0E3F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -78,9 +80,19 @@
 			path = iCloudIssueiOS;
 			sourceTree = "<group>";
 		};
+		D1469C6F253DB600006FA1A2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D1469C70253DB618006FA1A2 /* Model.swift */,
+				D160E00024A24889000D0E3F /* ContentView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D160DFF024A24889000D0E3F = {
 			isa = PBXGroup;
 			children = (
+				D1469C6F253DB600006FA1A2 /* Shared */,
 				D160E01224A39CF1000D0E3F /* README.md */,
 				D160DFFB24A24889000D0E3F /* iCloudIssue */,
 				D1469C52253DB4BE006FA1A2 /* iCloudIssueiOS */,
@@ -102,7 +114,6 @@
 			children = (
 				D160DFFC24A24889000D0E3F /* AppDelegate.swift */,
 				D160DFFE24A24889000D0E3F /* Document.swift */,
-				D160E00024A24889000D0E3F /* ContentView.swift */,
 				D160E00224A2488B000D0E3F /* Assets.xcassets */,
 				D160E00724A2488B000D0E3F /* Main.storyboard */,
 				D160E00A24A2488B000D0E3F /* Info.plist */,
@@ -234,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1469C71253DB618006FA1A2 /* Model.swift in Sources */,
 				D160DFFF24A24889000D0E3F /* Document.swift in Sources */,
 				D160DFFD24A24889000D0E3F /* AppDelegate.swift in Sources */,
 				D160E00124A24889000D0E3F /* ContentView.swift in Sources */,
