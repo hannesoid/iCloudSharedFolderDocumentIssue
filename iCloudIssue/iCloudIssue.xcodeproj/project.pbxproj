@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1469C54253DB4BE006FA1A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469C53253DB4BE006FA1A2 /* AppDelegate.swift */; };
+		D1469C56253DB4BE006FA1A2 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469C55253DB4BE006FA1A2 /* DocumentBrowserViewController.swift */; };
+		D1469C58253DB4BE006FA1A2 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469C57253DB4BE006FA1A2 /* DocumentView.swift */; };
+		D1469C5A253DB4BE006FA1A2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1469C59253DB4BE006FA1A2 /* Document.swift */; };
+		D1469C5D253DB4BE006FA1A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1469C5B253DB4BE006FA1A2 /* Main.storyboard */; };
+		D1469C5F253DB4C0006FA1A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1469C5E253DB4C0006FA1A2 /* Assets.xcassets */; };
+		D1469C62253DB4C0006FA1A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1469C60253DB4C0006FA1A2 /* LaunchScreen.storyboard */; };
 		D160DFFD24A24889000D0E3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160DFFC24A24889000D0E3F /* AppDelegate.swift */; };
 		D160DFFF24A24889000D0E3F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160DFFE24A24889000D0E3F /* Document.swift */; };
 		D160E00124A24889000D0E3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160E00024A24889000D0E3F /* ContentView.swift */; };
@@ -17,6 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1469C51253DB4BE006FA1A2 /* iCloudIssueiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudIssueiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1469C53253DB4BE006FA1A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1469C55253DB4BE006FA1A2 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		D1469C57253DB4BE006FA1A2 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		D1469C59253DB4BE006FA1A2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		D1469C5C253DB4BE006FA1A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1469C5E253DB4C0006FA1A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1469C61253DB4C0006FA1A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D1469C63253DB4C0006FA1A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D160DFF924A24889000D0E3F /* iCloudIssue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudIssue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D160DFFC24A24889000D0E3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D160DFFE24A24889000D0E3F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -30,6 +46,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D1469C4E253DB4BE006FA1A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D160DFF624A24889000D0E3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,11 +63,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1469C52253DB4BE006FA1A2 /* iCloudIssueiOS */ = {
+			isa = PBXGroup;
+			children = (
+				D1469C53253DB4BE006FA1A2 /* AppDelegate.swift */,
+				D1469C55253DB4BE006FA1A2 /* DocumentBrowserViewController.swift */,
+				D1469C57253DB4BE006FA1A2 /* DocumentView.swift */,
+				D1469C59253DB4BE006FA1A2 /* Document.swift */,
+				D1469C5B253DB4BE006FA1A2 /* Main.storyboard */,
+				D1469C5E253DB4C0006FA1A2 /* Assets.xcassets */,
+				D1469C60253DB4C0006FA1A2 /* LaunchScreen.storyboard */,
+				D1469C63253DB4C0006FA1A2 /* Info.plist */,
+			);
+			path = iCloudIssueiOS;
+			sourceTree = "<group>";
+		};
 		D160DFF024A24889000D0E3F = {
 			isa = PBXGroup;
 			children = (
 				D160E01224A39CF1000D0E3F /* README.md */,
 				D160DFFB24A24889000D0E3F /* iCloudIssue */,
+				D1469C52253DB4BE006FA1A2 /* iCloudIssueiOS */,
 				D160DFFA24A24889000D0E3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				D160DFF924A24889000D0E3F /* iCloudIssue.app */,
+				D1469C51253DB4BE006FA1A2 /* iCloudIssueiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +123,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D1469C50253DB4BE006FA1A2 /* iCloudIssueiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1469C66253DB4C0006FA1A2 /* Build configuration list for PBXNativeTarget "iCloudIssueiOS" */;
+			buildPhases = (
+				D1469C4D253DB4BE006FA1A2 /* Sources */,
+				D1469C4E253DB4BE006FA1A2 /* Frameworks */,
+				D1469C4F253DB4BE006FA1A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iCloudIssueiOS;
+			productName = iCloudIssueiOS;
+			productReference = D1469C51253DB4BE006FA1A2 /* iCloudIssueiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D160DFF824A24889000D0E3F /* iCloudIssue */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D160E00E24A2488B000D0E3F /* Build configuration list for PBXNativeTarget "iCloudIssue" */;
@@ -106,10 +163,13 @@
 		D160DFF124A24889000D0E3F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "IdeasOnCanvas GmbH";
 				TargetAttributes = {
+					D1469C50253DB4BE006FA1A2 = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					D160DFF824A24889000D0E3F = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -129,11 +189,22 @@
 			projectRoot = "";
 			targets = (
 				D160DFF824A24889000D0E3F /* iCloudIssue */,
+				D1469C50253DB4BE006FA1A2 /* iCloudIssueiOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D1469C4F253DB4BE006FA1A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1469C62253DB4C0006FA1A2 /* LaunchScreen.storyboard in Resources */,
+				D1469C5F253DB4C0006FA1A2 /* Assets.xcassets in Resources */,
+				D1469C5D253DB4BE006FA1A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D160DFF724A24889000D0E3F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +219,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D1469C4D253DB4BE006FA1A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1469C5A253DB4BE006FA1A2 /* Document.swift in Sources */,
+				D1469C56253DB4BE006FA1A2 /* DocumentBrowserViewController.swift in Sources */,
+				D1469C58253DB4BE006FA1A2 /* DocumentView.swift in Sources */,
+				D1469C54253DB4BE006FA1A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D160DFF524A24889000D0E3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +243,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D1469C5B253DB4BE006FA1A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1469C5C253DB4BE006FA1A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1469C60253DB4C0006FA1A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1469C61253DB4C0006FA1A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		D160E00724A2488B000D0E3F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -172,6 +270,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D1469C64253DB4C0006FA1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTJ8KR7BUK;
+				INFOPLIST_FILE = iCloudIssueiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = at.hannes.oud.iCloudIssueiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1469C65253DB4C0006FA1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DTJ8KR7BUK;
+				INFOPLIST_FILE = iCloudIssueiOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = at.hannes.oud.iCloudIssueiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D160E00C24A2488B000D0E3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -334,6 +477,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D1469C66253DB4C0006FA1A2 /* Build configuration list for PBXNativeTarget "iCloudIssueiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1469C64253DB4C0006FA1A2 /* Debug */,
+				D1469C65253DB4C0006FA1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D160DFF424A24889000D0E3F /* Build configuration list for PBXProject "iCloudIssue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

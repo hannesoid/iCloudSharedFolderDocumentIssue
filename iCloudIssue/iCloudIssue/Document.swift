@@ -137,25 +137,25 @@ extension Document {
         self.model.appendLog(.init(date: Date(), kind: .presentedItemDidChange, message: "Presented Item Did Change", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
         super.presentedItemDidChange()
     }
-
-    override func relinquishPresentedItem(toReader reader: @escaping ((() -> Void)?) -> Void) {
-        self.model.appendLog(.init(date: Date(), kind: .relinquishToReader, message: "Relinquish to Reader BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
-        super.relinquishPresentedItem(toReader: { reaquirer in
-            reader({
-                reaquirer?()
-                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Reader END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
-            })
-        })
-    }
-
-    override func relinquishPresentedItem(toWriter writer: @escaping ((() -> Void)?) -> Void) {
-        self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
-        super.relinquishPresentedItem(toWriter: { reaquirer in
-            writer({
-                reaquirer?()
-                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
-            })
-        })
-    }
+//
+//    override func relinquishPresentedItem(toReader reader: @escaping ((() -> Void)?) -> Void) {
+//        self.model.appendLog(.init(date: Date(), kind: .relinquishToReader, message: "Relinquish to Reader BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
+//        super.relinquishPresentedItem(toReader: { reaquirer in
+//            reader({
+//                reaquirer?()
+//                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Reader END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
+//            })
+//        })
+//    }
+//
+//    override func relinquishPresentedItem(toWriter writer: @escaping ((() -> Void)?) -> Void) {
+//        self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer BEGIN", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
+//        super.relinquishPresentedItem(toWriter: { reaquirer in
+//            writer({
+//                reaquirer?()
+//                self.model.appendLog(.init(date: Date(), kind: .relinquishToWriter, message: "Relinquish to Writer END", value: self.model.contentString, lastDocumentModifiedDate: self.fileModificationDate))
+//            })
+//        })
+//    }
 }
 
