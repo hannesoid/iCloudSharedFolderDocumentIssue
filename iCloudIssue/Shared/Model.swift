@@ -6,7 +6,6 @@
 //  Copyright © 2020 IdeasOnCanvas GmbH. All rights reserved.
 //
 
-import Cocoa
 import SwiftUI
 import Combine
 
@@ -69,5 +68,30 @@ struct LogEntry: Equatable, Identifiable {
     }
     struct Write: Equatable {
         let string: String
+    }
+}
+
+extension LogEntry {
+    
+    func format(date: Date?) -> String {
+        guard let date = date else { return "-" }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "y-MM-dd H:m:ss.SSSS"
+        return dateFormatter.string(from: date)
+    }
+
+    var dateString: String {
+        return format(date: self.date)
+    }
+
+    var fileModificationDateString: String {
+        return format(date: self.lastDocumentModifiedDate)
+    }
+
+    func containsPhrase(_ phrase: String) -> Bool {
+        if phrase.isEmpty { return true }
+
+        return self.message.contains(phrase) || self.value.contains(phrase) || self.dateString.contains(phrase)
     }
 }

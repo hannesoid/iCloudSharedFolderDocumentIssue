@@ -50,27 +50,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(model: .init())
     }
 }
-
-extension LogEntry {
-    func format(date: Date?) -> String {
-        guard let date = date else { return "-" }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "y-MM-dd H:m:ss.SSSS"
-        return dateFormatter.string(from: date)
-    }
-
-    var dateString: String {
-        return format(date: self.date)
-    }
-
-    var fileModificationDateString: String {
-        return format(date: self.lastDocumentModifiedDate)
-    }
-
-    func containsPhrase(_ phrase: String) -> Bool {
-        if phrase.isEmpty { return true }
-
-        return self.message.contains(phrase) || self.value.contains(phrase) || self.dateString.contains(phrase)
-    }
-}
